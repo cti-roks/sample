@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest
+FROM registry.access.redhat.com/ubi9/nodejs-18:9.5
 COPY package.json ./
 RUN npm install
 COPY . /opt/app-root/src
