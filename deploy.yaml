@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sample
-          image: jp.icr.io/cti-rocks-training/sample:0.2
+          image: jp.icr.io/cti-rocks-training/sample:0.3
           ports:
             - name: http
               containerPort: 8080
