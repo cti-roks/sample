@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+        - name: sample
+          image: jp.icr.io/cti-rocks-training/sample1:0.1
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+      imagePullSecrets:
+        - name: all-icr-io
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample
+spec:
+  ports:
+    - name: http-3000
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: sample
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: sample
+spec:
+  to:
+    kind: Service
+    name: sample
+  tls:
+    termination: edge
+  port:
+    targetPort: http-3000
