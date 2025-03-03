@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: sample
-          image: jp.icr.io/cti-rocks-training/sample:v0.1
+          image: jp.icr.io/cti-rocks-training/sample:0.1
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 8080
               protocol: TCP
       imagePullSecrets:
         - name: all-icr-io
@@ -28,10 +28,10 @@ metadata:
   name: sample
 spec:
   ports:
-    - name: http-3000
-      port: 3000
+    - name: http-8080
+      port: 8080
       protocol: TCP
-      targetPort: 3000
+      targetPort: 8080
   selector:
     app: sample
 ---
@@ -46,4 +46,4 @@ spec:
   tls:
     termination: edge
   port:
-    targetPort: http-3000
+    targetPort: http-8080
