@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: sample
-#          image: jp.icr.io/cti-rocks-training/sample:0.1
-          image: image-registry.openshift-image-registry.svc:5000/cicd-demo/sample:0.1
+          image: jp.icr.io/cti-roks-training/sample:0.1
+         # image: image-registry.openshift-image-registry.svc:5000/cicd-demo/sample:0.1
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-#      imagePullSecrets:
-#        - name: all-icr-io
+      imagePullSecrets:
+        - name: all-icr-io
 ---
 kind: Service
 apiVersion: v1
