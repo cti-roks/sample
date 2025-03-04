@@ -4,8 +4,7 @@ metadata:
   name: build-deploy
 spec:
   params:
-#    - default: 'jp.icr.io/cti-rocks-training/sample:0.1'
-    - default: 'image-registry.openshift-image-registry.svc:5000/cicd-demo/sample:0.1'
+    - default: 'jp.icr.io/cti-roks-training/sample:0.1'
       name: IMAGE_NAME
       type: string
     - default: 'https://github.com/cti-roks/sample.git'
